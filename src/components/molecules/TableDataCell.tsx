@@ -1,5 +1,6 @@
 import type { ColumnDefinition } from '../../types/column';
 import type { ApplicationRow } from '../../types/applicationRow';
+import { formatAmount, formatDate, formatText } from '../../lib/formatCellValue';
 import { Badge } from '../atoms/Badge';
 import { RowActionButton } from '../atoms/RowActionButton';
 import { Td } from '../atoms/Td';
@@ -19,13 +20,24 @@ export function TableDataCell({ column, row }: TableDataCellProps) {
           <Badge label={String(value)} />
         </Td>
       );
+    case 'date':
+      return (
+        <Td>
+          <time dateTime={typeof value === 'string' ? value : undefined}>
+            {formatDate(value as string)}
+          </time>
+        </Td>
+      );
+    case 'currency':
+      return <Td>{formatAmount(typeof value === 'number' ? value : Number(value))}</Td>;
     case 'action':
       return (
         <Td>
           <RowActionButton label={column.label} disabled />
         </Td>
       );
+    case 'text':
     default:
-      return <Td>{value == null ? '—' : String(value)}</Td>;
+      return <Td>{formatText(value)}</Td>;
   }
 }
