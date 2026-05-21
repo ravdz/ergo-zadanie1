@@ -1,0 +1,33 @@
+# General Rules
+
+## Code Quality
+
+- TypeScript strict mode, no `any`
+- Always handle edge cases, loading states, and errors explicitly
+- Named exports for components and functions
+- Keep functions small and single-responsibility
+- No magic numbers — use named constants
+
+## Structure
+
+- Separate concerns: logic away from UI where possible
+- Group related files together
+- Consistent naming: PascalCase components, camelCase functions/variables
+
+## Testing
+
+- Write tests for business logic and key user interactions
+- Test behavior, not implementation details
+- Cover happy path + at least one edge case per unit
+
+## Git
+
+- Commit often with descriptive messages
+- Each commit should represent one logical change
+
+## README
+
+- Always maintain a README with:
+  - How to run the project
+  - Key technical decisions and why
+  - What you would add/improve given more time
