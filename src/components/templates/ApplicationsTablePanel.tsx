@@ -1,11 +1,10 @@
 import { memo } from 'react';
-import type { ColumnDefinition } from '../../types/column';
 import type { ApplicationRow } from '../../types/applicationRow';
+import type { ApplicationsTablePanelState } from '../../types/applicationView';
+import type { ColumnDefinition } from '../../types/column';
 import type { SortDirection } from '../../types/sort';
 import { ApplicationsTableContent } from '../organisms/ApplicationsTableContent';
 import { TableToolbar } from '../organisms/TableToolbar';
-
-export type ApplicationsTablePanelState = 'loading' | 'success' | 'empty' | 'error';
 
 type ApplicationsTablePanelProps = {
   state: ApplicationsTablePanelState;

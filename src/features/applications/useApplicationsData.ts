@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import type { ApplicationRow } from '../../types/applicationRow';
-import type { ApplicationsTablePanelState } from '../../components/templates/ApplicationsTablePanel';
+import type { ApplicationsTablePanelState } from '../../types/applicationView';
 
 type UseApplicationsDataResult = {
   state: ApplicationsTablePanelState;

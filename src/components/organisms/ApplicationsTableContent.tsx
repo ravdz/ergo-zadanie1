@@ -2,7 +2,7 @@ import { memo } from 'react';
 import type { ColumnDefinition } from '../../types/column';
 import type { ApplicationRow } from '../../types/applicationRow';
 import type { SortDirection } from '../../types/sort';
-import type { ApplicationsTablePanelState } from '../templates/ApplicationsTablePanel';
+import type { ApplicationsTablePanelState } from '../../types/applicationView';
 import { TableStateMessage } from '../atoms/TableStateMessage';
 import { Table } from './Table';
 

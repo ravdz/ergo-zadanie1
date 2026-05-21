@@ -1,13 +1,8 @@
 import type { ApplicationRow } from '../types/applicationRow';
+import type { SortParams } from '../types/applicationView';
 import type { ColumnDefinition } from '../types/column';
-import type { SortDirection } from '../types/sort';
 import { findColumnByKey } from './columns';
 import { compareSortableValues, getSortableValue } from './getSortableValue';
-
-export type SortParams = {
-  sortKey: string | null;
-  sortDirection: SortDirection;
-};
 
 export function sortApplications(
   rows: ApplicationRow[],

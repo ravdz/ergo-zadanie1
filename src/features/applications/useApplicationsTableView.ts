@@ -1,5 +1,5 @@
 import { useMemo } from 'react';
-import type { ApplicationsTablePanelState } from '../../components/templates/ApplicationsTablePanel';
+import type { ApplicationsTablePanelState } from '../../types/applicationView';
 import type { SortDirection } from '../../types/sort';
 import { filterApplications } from '../../lib/filterApplications';
 import { sortApplications } from '../../lib/sortApplications';

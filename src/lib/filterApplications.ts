@@ -1,10 +1,6 @@
 import type { ApplicationRow } from '../types/applicationRow';
+import type { FilterParams } from '../types/applicationView';
 import type { ColumnDefinition } from '../types/column';
-
-export type FilterParams = {
-  searchQuery: string;
-  statusFilter: string;
-};
 
 export function getSearchableColumnKeys(columns: ColumnDefinition[]): string[] {
   return columns
