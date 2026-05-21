@@ -101,7 +101,7 @@ vitest.setup.ts
 - **Sortowanie / akcje:** `sortApplications.test.ts`, `rowActions.test.ts`
 - **Render:** `TableDataCell.test.tsx`, `TableHeadCell.test.tsx`
 
-## Co zrobił(a)bym dalej (60–90 min)
+## Co zrobiłbym dalej (60–90 min)
 
 1. **Wirtualizacja lub paginacja** - przy pełnej liście kilku tysiecy wierszy, DOM jest wąskim gardłem; `@tanstack/react-virtual` albo stronicowanie po przefiltrowanych danych, żeby renderować tylko widoczne wiersze.
 2. **Query params** - trzymanie `search`, `status`, `sortKey`, `sortDirection` w URL (`useSearchParams`), żeby filtry i sort dało się udostępnić linkiem i odświeżyć stronę bez utraty widoku.
