@@ -1,6 +1,7 @@
 import type { ColumnDefinition } from '../../types/column';
 import type { ApplicationRow } from '../../types/applicationRow';
 import { formatAmount, formatDate, formatText } from '../../lib/formatCellValue';
+import { isRowActionEnabled } from '../../lib/rowActions';
 import { Badge } from '../atoms/Badge';
 import { RowActionButton } from '../atoms/RowActionButton';
 import { Td } from '../atoms/Td';
@@ -33,7 +34,7 @@ export function TableDataCell({ column, row }: TableDataCellProps) {
     case 'action':
       return (
         <Td>
-          <RowActionButton label={column.label} disabled />
+          <RowActionButton label={column.label} disabled={!isRowActionEnabled(row, column)} />
         </Td>
       );
     case 'text':

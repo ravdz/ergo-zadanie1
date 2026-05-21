@@ -23,7 +23,7 @@ export function TableHeadCell({
       <button
         type="button"
         onClick={onSort}
-        className="inline-flex items-center gap-1 font-medium text-slate-700 hover:text-slate-900"
+        className="inline-flex items-center gap-1 font-medium text-slate-700 cursor-pointer hover:text-slate-900"
       >
         {label}
         <SortIndicator direction={sortDirection} />
