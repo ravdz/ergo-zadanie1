@@ -103,6 +103,5 @@ vitest.setup.ts
 
 ## Co zrobiłbym dalej (60–90 min)
 
-1. **Wirtualizacja lub paginacja** - przy pełnej liście kilku tysiecy wierszy, DOM jest wąskim gardłem; `@tanstack/react-virtual` albo stronicowanie po przefiltrowanych danych, żeby renderować tylko widoczne wiersze.
-2. **Query params** - trzymanie `search`, `status`, `sortKey`, `sortDirection` w URL (`useSearchParams`), żeby filtry i sort dało się udostępnić linkiem i odświeżyć stronę bez utraty widoku.
-3. _(opcjonalnie)_ **MSW / mock fetch** w testach `App` oraz krótki opis modelu metadanych w Storybooku - jeśli zespół dociąga dokumentację UI.
+1. **Wirtualizacja lub paginacja** — przy pełnej liście kilku tysięcy wierszy DOM jest wąskim gardłem; `@tanstack/react-virtual` albo stronicowanie po przefiltrowanych danych, żeby renderować tylko widoczne wiersze.
+2. **Query params** — trzymanie `search`, `status`, `sortKey`, `sortDirection` w URL (`useSearchParams`), żeby filtry i sort dało się udostępnić linkiem i odświeżyć stronę bez utraty widoku.
