@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useCallback, useState, useTransition } from 'react';
 import { ApplicationsTablePanel } from './components/templates/ApplicationsTablePanel';
 import { useApplicationsData } from './features/applications/useApplicationsData';
 import { useApplicationsTableView } from './features/applications/useApplicationsTableView';
@@ -16,6 +16,7 @@ export function App() {
   const [statusFilter, setStatusFilter] = useState('');
   const [sortKey, setSortKey] = useState<string | null>(null);
   const [sortDirection, setSortDirection] = useState<SortDirection>(null);
+  const [, startTransition] = useTransition();
 
   const { panelState, displayRows } = useApplicationsTableView({
     loadState,
@@ -27,15 +28,24 @@ export function App() {
     sortDirection,
   });
 
-  const handleSort = (key: string) => {
-    if (sortKey === key) {
-      setSortDirection((current) => (current === 'asc' ? 'desc' : 'asc'));
-      return;
-    }
+  const handleDebouncedSearchChange = useCallback((value: string) => {
+    startTransition(() => {
+      setSearchQuery(value);
+    });
+  }, []);
 
-    setSortKey(key);
-    setSortDirection('asc');
-  };
+  const handleSort = useCallback(
+    (key: string) => {
+      if (sortKey === key) {
+        setSortDirection((current) => (current === 'asc' ? 'desc' : 'asc'));
+        return;
+      }
+
+      setSortKey(key);
+      setSortDirection('asc');
+    },
+    [sortKey],
+  );
 
   return (
     <main className="mx-auto max-w-6xl px-4 py-8">
@@ -46,12 +56,11 @@ export function App() {
         columns={columnDefinitions}
         rows={displayRows}
         statusOptions={statusOptions}
-        searchQuery={searchQuery}
         statusFilter={statusFilter}
         sortKey={sortKey}
         sortDirection={sortDirection}
         errorMessage={errorMessage}
-        onSearchChange={setSearchQuery}
+        onDebouncedSearchChange={handleDebouncedSearchChange}
         onStatusFilterChange={setStatusFilter}
         onSort={handleSort}
       />

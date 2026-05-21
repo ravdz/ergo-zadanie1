@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import type { ColumnDefinition } from '../../types/column';
 import type { ApplicationRow } from '../../types/applicationRow';
 import { TableRow } from '../molecules/TableRow';
@@ -7,7 +8,7 @@ type TableBodyProps = {
   rows: ApplicationRow[];
 };
 
-export function TableBody({ columns, rows }: TableBodyProps) {
+export const TableBody = memo(function TableBody({ columns, rows }: TableBodyProps) {
   return (
     <tbody>
       {rows.map((row) => (
@@ -15,4 +16,4 @@ export function TableBody({ columns, rows }: TableBodyProps) {
       ))}
     </tbody>
   );
-}
+});

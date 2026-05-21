@@ -1,18 +1,19 @@
+import { memo } from 'react';
 import type { ColumnDefinition } from '../../types/column';
-import type { SortDirection } from '../atoms/SortIndicator';
+import type { SortDirection } from '../../types/sort';
 import { TableHeadCell } from '../molecules/TableHeadCell';
 
 type TableHeaderProps = {
   columns: ColumnDefinition[];
-  sortKey?: string | null;
-  sortDirection?: SortDirection;
-  onSort?: (key: string) => void;
+  sortKey: string | null;
+  sortDirection: SortDirection;
+  onSort: (key: string) => void;
 };
 
-export function TableHeader({
+export const TableHeader = memo(function TableHeader({
   columns,
-  sortKey = null,
-  sortDirection = null,
+  sortKey,
+  sortDirection,
   onSort,
 }: TableHeaderProps) {
   return (
@@ -21,13 +22,14 @@ export function TableHeader({
         {columns.map((column) => (
           <TableHeadCell
             key={column.key}
+            columnKey={column.key}
             label={column.label}
             sortable={column.sortable}
             sortDirection={sortKey === column.key ? sortDirection : null}
-            onSort={column.sortable ? () => onSort?.(column.key) : undefined}
+            onSort={column.sortable ? onSort : undefined}
           />
         ))}
       </tr>
     </thead>
   );
-}
+});

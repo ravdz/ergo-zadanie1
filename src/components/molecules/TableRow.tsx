@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import type { ColumnDefinition } from '../../types/column';
 import type { ApplicationRow } from '../../types/applicationRow';
 import { TableDataCell } from './TableDataCell';
@@ -7,7 +8,7 @@ type TableRowProps = {
   row: ApplicationRow;
 };
 
-export function TableRow({ columns, row }: TableRowProps) {
+export const TableRow = memo(function TableRow({ columns, row }: TableRowProps) {
   return (
     <tr className="hover:bg-slate-50/80">
       {columns.map((column) => (
@@ -15,4 +16,4 @@ export function TableRow({ columns, row }: TableRowProps) {
       ))}
     </tr>
   );
-}
+});

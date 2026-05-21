@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import type { ColumnDefinition } from '../../types/column';
 import type { ApplicationRow } from '../../types/applicationRow';
 import { formatAmount, formatDate, formatText } from '../../lib/formatCellValue';
@@ -11,7 +12,7 @@ type TableDataCellProps = {
   row: ApplicationRow;
 };
 
-export function TableDataCell({ column, row }: TableDataCellProps) {
+export const TableDataCell = memo(function TableDataCell({ column, row }: TableDataCellProps) {
   const value = row[column.key as keyof ApplicationRow];
 
   switch (column.type) {
@@ -41,4 +42,4 @@ export function TableDataCell({ column, row }: TableDataCellProps) {
     default:
       return <Td>{formatText(value)}</Td>;
   }
-}
+});

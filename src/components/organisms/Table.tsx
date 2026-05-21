@@ -1,18 +1,25 @@
+import { memo } from 'react';
 import type { ColumnDefinition } from '../../types/column';
 import type { ApplicationRow } from '../../types/applicationRow';
-import type { SortDirection } from '../atoms/SortIndicator';
+import type { SortDirection } from '../../types/sort';
 import { TableBody } from './TableBody';
 import { TableHeader } from './TableHeader';
 
 type TableProps = {
   columns: ColumnDefinition[];
   rows: ApplicationRow[];
-  sortKey?: string | null;
-  sortDirection?: SortDirection;
-  onSort?: (key: string) => void;
+  sortKey: string | null;
+  sortDirection: SortDirection;
+  onSort: (key: string) => void;
 };
 
-export function Table({ columns, rows, sortKey, sortDirection, onSort }: TableProps) {
+export const Table = memo(function Table({
+  columns,
+  rows,
+  sortKey,
+  sortDirection,
+  onSort,
+}: TableProps) {
   return (
     <table className="w-full border-collapse text-left text-sm text-slate-800">
       <TableHeader
@@ -24,4 +31,4 @@ export function Table({ columns, rows, sortKey, sortDirection, onSort }: TablePr
       <TableBody columns={columns} rows={rows} />
     </table>
   );
-}
+});
