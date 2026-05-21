@@ -42,9 +42,8 @@ Aplikacja domyślnie: [http://localhost:5173](http://localhost:5173)
 ```
 src/
   data/         # columns.json - konfiguracja tabeli
-  app/          # shell aplikacji
-  components/   # komponenty UI
-  features/     # logika funkcjonalna
+  components/   # UI
+  features/     # logika funkcjonalna (fetch, sort, filter)
   lib/          # funkcje pomocnicze
   types/        # typy współdzielone
   test/         # konfiguracja testów (setup Vitest)
